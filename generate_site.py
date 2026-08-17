@@ -32,6 +32,8 @@ def get_header(current_page=""):
         active_cls = " active" if current_page == slug else ""
         nav_links.append(f'<a href="{url}" class="nav-link{active_cls}">{title}</a>')
         
+    cotizar_active = ' style="box-shadow: 0 0 0 2px var(--color-accent-400);"' if current_page == 'cotizar' else ''
+    
     return f'''
   <!-- HEADER -->
   <header class="site-header">
@@ -49,7 +51,7 @@ def get_header(current_page=""):
           {''.join(nav_links)}
         </div>
         <div class="header-actions">
-          <a href="contacto.html" class="btn btn-accent btn-sm">Cotizar Proyecto</a>
+          <a href="cotizar.html" class="btn btn-accent btn-sm"{cotizar_active}>Cotizar Proyecto</a>
         </div>
       </nav>
 
@@ -87,7 +89,8 @@ def get_footer():
             <a href="procesos.html">Procesos de Producción</a>
             <a href="productos.html">Catálogo de Productos</a>
             <a href="clientes.html">Nuestros Clientes</a>
-            <a href="contacto.html">Contacto y Cotizaciones</a>
+            <a href="contacto.html">Contacto Institucional</a>
+            <a href="cotizar.html" style="color: var(--color-accent-400); font-weight: 600;">Cotizador de Proyectos &rarr;</a>
           </div>
         </div>
 
@@ -224,7 +227,7 @@ index_content = f'''
 
           <div class="hero-actions">
             <a href="productos.html" class="btn btn-primary btn-lg">Ver Catálogo de Productos</a>
-            <a href="contacto.html" class="btn btn-outline btn-lg">Solicitar Cotización</a>
+            <a href="cotizar.html" class="btn btn-accent btn-lg">Cotizar Proyecto</a>
           </div>
 
           <div class="hero-metrics">
@@ -486,17 +489,17 @@ index_content = f'''
     </div>
   </section>
 
-  <!-- CTA CONTACTO RÁPIDO -->
+  <!-- CTA COTIZADOR BANNER -->
   <section class="section">
     <div class="container">
       <div style="background: linear-gradient(135deg, var(--color-primary-900), var(--color-primary-850)); border-radius: var(--radius-xl); padding: 56px 48px; color: #ffffff; text-align: center; max-width: 960px; margin: 0 auto; box-shadow: var(--shadow-xl);">
         <h2 style="color: #ffffff; font-size: 2.2rem; margin-bottom: 16px;">¿Listo para iniciar su próximo proyecto gráfico?</h2>
         <p style="color: #cbd5e1; font-size: 1.1rem; max-width: 680px; margin: 0 auto 32px; line-height: 1.65;">
-          Nuestro equipo técnico y comercial está listo para asesorarlo en el diseño estructural, materiales y cotización a medida.
+          Complete las especificaciones de su producto en nuestro cotizador técnico y reciba asesoramiento a medida.
         </p>
         <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-          <a href="contacto.html" class="btn btn-accent btn-lg">Solicitar Presupuesto</a>
-          <a href="tel:+541148653675" class="btn btn-outline-white btn-lg">Llamar: (011) 4865-3675</a>
+          <a href="cotizar.html" class="btn btn-accent btn-lg">Cotizar Proyecto Ahora</a>
+          <a href="contacto.html" class="btn btn-outline-white btn-lg">Contacto Institucional</a>
         </div>
       </div>
     </div>
@@ -738,7 +741,7 @@ procesos_content = f'''
       </div>
 
       <div style="text-align: center; margin-top: 56px;">
-        <a href="contacto.html" class="btn btn-primary btn-lg">Solicitar Cotización de Producción</a>
+        <a href="cotizar.html" class="btn btn-accent btn-lg">Cotizar Proyecto de Producción &rarr;</a>
       </div>
     </div>
   </section>
@@ -779,6 +782,10 @@ productos_content = f'''
       <div class="gallery-grid">
         {''.join(all_products_gallery)}
       </div>
+
+      <div style="text-align: center; margin-top: 56px;">
+        <a href="cotizar.html" class="btn btn-accent btn-lg">Cotizar Proyecto a Medida &rarr;</a>
+      </div>
     </div>
   </section>
 '''
@@ -805,7 +812,7 @@ estuches_content = f'''
       </div>
 
       <div style="text-align: center; margin-top: 56px;">
-        <a href="contacto.html" class="btn btn-primary btn-lg">Cotizar Estuches Productivos</a>
+        <a href="cotizar.html" class="btn btn-accent btn-lg">Cotizar Estuches Productivos</a>
       </div>
     </div>
   </section>
@@ -832,7 +839,7 @@ estuchespromocionales_content = f'''
       </div>
 
       <div style="text-align: center; margin-top: 56px;">
-        <a href="contacto.html" class="btn btn-primary btn-lg">Cotizar Packs Promocionales</a>
+        <a href="cotizar.html" class="btn btn-accent btn-lg">Cotizar Packs Promocionales</a>
       </div>
     </div>
   </section>
@@ -859,7 +866,7 @@ materialpop_content = f'''
       </div>
 
       <div style="text-align: center; margin-top: 56px;">
-        <a href="contacto.html" class="btn btn-primary btn-lg">Cotizar Material POP & Displays</a>
+        <a href="cotizar.html" class="btn btn-accent btn-lg">Cotizar Material POP & Displays</a>
       </div>
     </div>
   </section>
@@ -886,7 +893,7 @@ promocion_content = f'''
       </div>
 
       <div style="text-align: center; margin-top: 56px;">
-        <a href="contacto.html" class="btn btn-primary btn-lg">Cotizar Acciones Promocionales</a>
+        <a href="cotizar.html" class="btn btn-accent btn-lg">Cotizar Acciones Promocionales</a>
       </div>
     </div>
   </section>
@@ -925,7 +932,7 @@ clientes_content = f'''
         <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto 24px; font-size: 1rem;">
           Descubra por qué los principales laboratorios y corporaciones multinacionales eligen a Gráfica Sacerdoti para sus proyectos más críticos.
         </p>
-        <a href="contacto.html" class="btn btn-primary btn-lg">Iniciar Contacto Comercial</a>
+        <a href="cotizar.html" class="btn btn-accent btn-lg">Solicitar Presupuesto de Producción</a>
       </div>
     </div>
   </section>
@@ -934,16 +941,183 @@ with open("clientes.html", "w", encoding="utf-8") as f:
     f.write(render_page("Clientes", "clientes", clientes_content, "Principales clientes y marcas que confían en Gráfica Sacerdoti S.A."))
 
 # -------------------------------------------------------------
-# 10. CONTACTO.HTML
+# 10. COTIZAR.HTML (NUEVA PÁGINA EXCLUSIVA DE COTIZACIÓN TÉCNICA)
+# -------------------------------------------------------------
+cotizar_content = f'''
+  <section class="section" style="padding-top: calc(var(--header-height) + 48px);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Presupuesto y Asesoramiento Técnico</span>
+        <h1 class="section-title">Cotizador de Producción Gráfica</h1>
+        <p class="section-description">
+          Complete las especificaciones técnicas de su trabajo para que nuestro equipo de ingeniería y ventas prepare una propuesta a medida con tiempos y costos optimizados.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- FORMULARIO TÉCNICO DE COTIZACIÓN -->
+        <div class="contact-form-card">
+          <h3 style="font-size: 1.4rem; color: var(--color-primary-900); margin-bottom: 8px;">Especificaciones del Proyecto</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 24px;">Complete los datos técnicos para una cotización exacta de pliego y terminaciones.</p>
+
+          <div id="formSuccessMsg" class="form-success-message">
+            ¡Muchas gracias! Su solicitud de cotización ha sido recibida por nuestro equipo técnico. Nos pondremos en contacto a la brevedad con la propuesta formal.
+          </div>
+
+          <form id="contactForm">
+            <!-- 1. DATOS DE CONTACTO -->
+            <div style="margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--color-border);">
+              <h4 style="font-size: 1.05rem; color: var(--color-primary-900); margin-bottom: 16px;">1. Datos de Contacto y Empresa</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="nombre">Nombre y Apellido *</label>
+                  <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ej. Martín Rodríguez" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="empresa">Empresa / Laboratorio *</label>
+                  <input type="text" id="empresa" name="empresa" class="form-control" placeholder="Ej. Laboratorios ABC" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="email">E-mail Corporativo *</label>
+                  <input type="email" id="email" name="email" class="form-control" placeholder="nombre@empresa.com" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="telefono">Teléfono / WhatsApp *</label>
+                  <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="Ej. (011) 15-4444-5555" required>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. PRODUCTO Y CANTIDADES -->
+            <div style="margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--color-border);">
+              <h4 style="font-size: 1.05rem; color: var(--color-primary-900); margin-bottom: 16px;">2. Tipo de Producto y Tirada Estimada</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="tipo_producto">Tipo de Producto *</label>
+                  <select id="tipo_producto" name="tipo_producto" class="form-control" required>
+                    <option value="estuches_medicinales">Estuches Medicinales (Farmacopea)</option>
+                    <option value="estuches_cosmetica">Estuches para Cosmética y Perfumería</option>
+                    <option value="estuches_alimentos">Packaging para Alimentos y Consumo</option>
+                    <option value="packs_promocionales">Packs de Lanzamiento & Cofres Promocionales</option>
+                    <option value="material_pop">Material POP & Displays para Punto de Venta</option>
+                    <option value="raspaditas_seguridad">Raspaditas de Seguridad Antifraude</option>
+                    <option value="piezas_promocionales">Agendas, Almanaques y Merchandising</option>
+                    <option value="otro">Otro Desarrollo a Medida</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="tirada">Cantidad de Unidades Estimada *</label>
+                  <select id="tirada" name="tirada" class="form-control" required>
+                    <option value="1k_5k">1.000 a 5.000 unidades</option>
+                    <option value="5k_20k">5.000 a 20.000 unidades</option>
+                    <option value="20k_50k">20.000 a 50.000 unidades</option>
+                    <option value="50k_100k">50.000 a 100.000 unidades</option>
+                    <option value="mas_100k">+100.000 unidades (Gran Escala)</option>
+                    <option value="consultar">A definir / Asesoramiento</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="sustrato">Sustrato / Material Preferido</label>
+                <select id="sustrato" name="sustrato" class="form-control">
+                  <option value="cartulina_triplex">Cartulina Triplex / Encapada</option>
+                  <option value="carton_montado">Cartón Montado / Foamboard</option>
+                  <option value="microcorrugado">Cartón Microcorrugado Montado</option>
+                  <option value="pai_plastico">Plásticos PAI / PVC</option>
+                  <option value="recomendar">Recomendar según el producto</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- 3. TERMINACIONES ESPECIALES -->
+            <div style="margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--color-border);">
+              <h4 style="font-size: 1.05rem; color: var(--color-primary-900); margin-bottom: 12px;">3. Terminaciones Especiales y Seguridad</h4>
+              <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;">
+                <label style="display: flex; align-items: center; gap: 8px; font-size: 0.875rem; cursor: pointer;">
+                  <input type="checkbox" name="terminacion" value="laca_uv"> Laca UV Sectorizada / Total
+                </label>
+                <label style="display: flex; align-items: center; gap: 8px; font-size: 0.875rem; cursor: pointer;">
+                  <input type="checkbox" name="terminacion" value="hot_stamping"> Hot Stamping (Oro / Plata)
+                </label>
+                <label style="display: flex; align-items: center; gap: 8px; font-size: 0.875rem; cursor: pointer;">
+                  <input type="checkbox" name="terminacion" value="relieve_braille"> Relieve Seco / Braille
+                </label>
+                <label style="display: flex; align-items: center; gap: 8px; font-size: 0.875rem; cursor: pointer;">
+                  <input type="checkbox" name="terminacion" value="seguridad_tintas"> Tintas UV / Reactivas
+                </label>
+                <label style="display: flex; align-items: center; gap: 8px; font-size: 0.875rem; cursor: pointer;">
+                  <input type="checkbox" name="terminacion" value="pegado_auto"> Fondo Automático
+                </label>
+                <label style="display: flex; align-items: center; gap: 8px; font-size: 0.875rem; cursor: pointer;">
+                  <input type="checkbox" name="terminacion" value="raspadita"> Zona de Raspadita
+                </label>
+              </div>
+            </div>
+
+            <!-- 4. DETALLES ADICIONALES -->
+            <div class="form-group">
+              <label class="form-label" for="mensaje">Medidas aproximadas y detalles técnicos *</label>
+              <textarea id="mensaje" name="mensaje" class="form-control" placeholder="Indique medidas (Base x Alto x Profundidad), colores de pliego, plazos de entrega requeridos u otras observaciones..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-accent btn-lg" style="width: 100%;">Solicitar Presupuesto Técnico</button>
+          </form>
+        </div>
+
+        <!-- PANEL LATERAL DE VALOR AGREGADO -->
+        <div>
+          <div class="contact-info-card" style="margin-bottom: 24px;">
+            <h3>Ventajas de Producir con Sacerdoti</h3>
+            <p style="margin-bottom: 20px;">Garantizamos los más altos estándares de la industria gráfica argentina.</p>
+
+            <ul style="display: flex; flex-direction: column; gap: 14px; color: #f1f5f9; font-size: 0.9rem;">
+              <li style="display: flex; gap: 10px; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="var(--color-accent-400)" viewBox="0 0 24 24" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>Producción 100% In-House:</strong> Cero tercerizaciones, asegurando plazos y confidencialidad.</span>
+              </li>
+              <li style="display: flex; gap: 10px; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="var(--color-accent-400)" viewBox="0 0 24 24" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>Asesoramiento Estructural:</strong> Diseño y desarrollo de maquetas previas para validación.</span>
+              </li>
+              <li style="display: flex; gap: 10px; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="var(--color-accent-400)" viewBox="0 0 24 24" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>Calidad Certificada:</strong> Protocolos ISO 9001:2008 y estricto control de farmacopea.</span>
+              </li>
+              <li style="display: flex; gap: 10px; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="var(--color-accent-400)" viewBox="0 0 24 24" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>Logística Integral:</strong> Embalaje especializado y despacho a todo el país y exterior.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div style="background-color: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 24px; text-align: center;">
+            <h4 style="font-size: 1.1rem; color: var(--color-primary-900); margin-bottom: 8px;">¿Necesita asesoramiento telefónico directo?</h4>
+            <p style="color: var(--color-text-muted); font-size: 0.875rem; margin-bottom: 16px;">Comuníquese con nuestra oficina técnica comercial:</p>
+            <p style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--color-primary-900); margin-bottom: 12px;">(011) 4865-3675</p>
+            <a href="contacto.html" class="btn btn-outline btn-sm">Ver Datos Institucionales</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+'''
+with open("cotizar.html", "w", encoding="utf-8") as f:
+    f.write(render_page("Cotizar Proyecto", "cotizar", cotizar_content, "Cotizador y solicitud de presupuestos técnicos para packaging, estuches, material POP y promocionales en Gráfica Sacerdoti."))
+
+# -------------------------------------------------------------
+# 11. CONTACTO.HTML (DEDICADA A CONTACTO INSTITUCIONAL Y PLANTA)
 # -------------------------------------------------------------
 contacto_content = f'''
   <section class="section" style="padding-top: calc(var(--header-height) + 48px);">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Atención Comercial y Técnica</span>
+        <span class="section-tag">Atención Institucional y Planta</span>
         <h1 class="section-title">Contacto</h1>
         <p class="section-description">
-          Contáctenos para cotizar su próximo trabajo, coordinar una reunión técnica o recibir asesoramiento en el desarrollo de packaging.
+          Comuníquese con nuestras oficinas centrales y planta gráfica para consultas administrativas, proveedores o coordinación de visitas técnicas.
         </p>
       </div>
 
@@ -962,7 +1136,7 @@ contacto_content = f'''
                   </svg>
                 </div>
                 <div class="contact-detail-content">
-                  <h5>Dirección Oficial</h5>
+                  <h5>Dirección Oficial y Planta</h5>
                   <p>Mario Bravo 933 (C1175ABQ)<br>Ciudad Autónoma de Buenos Aires, Argentina</p>
                 </div>
               </div>
@@ -986,7 +1160,7 @@ contacto_content = f'''
                   </svg>
                 </div>
                 <div class="contact-detail-content">
-                  <h5>Correo Electrónico</h5>
+                  <h5>Correo Institucional</h5>
                   <p><a href="mailto:sacerdoti@sacerdoti.com.ar">sacerdoti@sacerdoti.com.ar</a></p>
                 </div>
               </div>
@@ -999,8 +1173,8 @@ contacto_content = f'''
         </div>
 
         <div class="contact-form-card">
-          <h3>Envíenos su mensaje</h3>
-          <p>Complete los datos a continuación y nos pondremos en contacto prontamente.</p>
+          <h3>Mensaje Institucional o Consulta General</h3>
+          <p>Para consultas administrativas o institucionales, complete los datos a continuación:</p>
 
           <div id="formSuccessMsg" class="form-success-message">
             ¡Muchas gracias por contactarnos! Su mensaje ha sido enviado correctamente. Le responderemos a la brevedad.
@@ -1014,7 +1188,7 @@ contacto_content = f'''
               </div>
               <div class="form-group">
                 <label class="form-label" for="empresa">Empresa / Institución</label>
-                <input type="text" id="empresa" name="empresa" class="form-control" placeholder="Ej. Laboratorio / Agencia">
+                <input type="text" id="empresa" name="empresa" class="form-control" placeholder="Ej. Empresa / Agencia">
               </div>
             </div>
 
@@ -1030,23 +1204,25 @@ contacto_content = f'''
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="servicio">Línea o Servicio Requerido</label>
-              <select id="servicio" name="servicio" class="form-control">
-                <option value="estuches">Estuches Productivos (Cosmética, Medicina, Alimentos)</option>
-                <option value="estuchespromocionales">Estuches Promocionales y Packs de Lanzamiento</option>
-                <option value="materialpop">Material POP y Exhibidores para Punto de Venta</option>
-                <option value="promocion">Productos Promocionales (Raspaditas, Juegos, Almanaques)</option>
-                <option value="seguridad">Sistemas de Seguridad Antifalsificación</option>
-                <option value="consulta">Otras Consultas Generales</option>
+              <label class="form-label" for="motivo">Motivo de Contacto</label>
+              <select id="motivo" name="motivo" class="form-control">
+                <option value="consulta_general">Consulta General / Información</option>
+                <option value="proveedores">Proveedores e Insumos</option>
+                <option value="recursos_humanos">Recursos Humanos / Postulaciones</option>
+                <option value="administracion">Administración y Finanzas</option>
               </select>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="mensaje">Mensaje *</label>
-              <textarea id="mensaje" name="mensaje" class="form-control" placeholder="Escriba aquí su consulta o especificaciones de cotización..." required></textarea>
+              <textarea id="mensaje" name="mensaje" class="form-control" placeholder="Escriba aquí su consulta..." required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Enviar Mensaje de Contacto</button>
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Enviar Mensaje Institucional</button>
+
+            <div style="margin-top: 16px; text-align: center;">
+              <span style="font-size: 0.875rem; color: var(--color-text-muted);">¿Desea solicitar un presupuesto de producción? <a href="cotizar.html" style="color: var(--color-accent-600); font-weight: 600;">Ir al Cotizador Técnico &rarr;</a></span>
+            </div>
           </form>
         </div>
       </div>
@@ -1062,6 +1238,6 @@ contacto_content = f'''
   </section>
 '''
 with open("contacto.html", "w", encoding="utf-8") as f:
-    f.write(render_page("Contacto", "contacto", contacto_content, "Contacto directo, cotizaciones y ubicación de Gráfica Sacerdoti en Buenos Aires, Argentina."))
+    f.write(render_page("Contacto", "contacto", contacto_content, "Contacto directo, datos institucionales y ubicación de Gráfica Sacerdoti en Buenos Aires, Argentina."))
 
-print("Security hardened HTML files generated successfully!")
+print("Site successfully rebuilt with dedicated Cotizador page (cotizar.html)!")

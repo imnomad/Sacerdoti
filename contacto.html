@@ -6,7 +6,7 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Contacto | Sacerdoti - Empresa Gráfica</title>
-  <meta name="description" content="Contacto directo, cotizaciones y ubicación de Gráfica Sacerdoti en Buenos Aires, Argentina.">
+  <meta name="description" content="Contacto directo, datos institucionales y ubicación de Gráfica Sacerdoti en Buenos Aires, Argentina.">
   <link rel="icon" type="image/svg+xml" href="assets/logos/logo.svg">
   <link rel="stylesheet" href="css/main.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +37,7 @@
           <a href="index.html" class="nav-link">Inicio</a><a href="historia.html" class="nav-link">Historia</a><a href="procesos.html" class="nav-link">Procesos</a><a href="productos.html" class="nav-link">Productos</a><a href="clientes.html" class="nav-link">Clientes</a><a href="contacto.html" class="nav-link active">Contacto</a>
         </div>
         <div class="header-actions">
-          <a href="contacto.html" class="btn btn-accent btn-sm">Cotizar Proyecto</a>
+          <a href="cotizar.html" class="btn btn-accent btn-sm">Cotizar Proyecto</a>
         </div>
       </nav>
 
@@ -53,10 +53,10 @@
   <section class="section" style="padding-top: calc(var(--header-height) + 48px);">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Atención Comercial y Técnica</span>
+        <span class="section-tag">Atención Institucional y Planta</span>
         <h1 class="section-title">Contacto</h1>
         <p class="section-description">
-          Contáctenos para cotizar su próximo trabajo, coordinar una reunión técnica o recibir asesoramiento en el desarrollo de packaging.
+          Comuníquese con nuestras oficinas centrales y planta gráfica para consultas administrativas, proveedores o coordinación de visitas técnicas.
         </p>
       </div>
 
@@ -75,7 +75,7 @@
                   </svg>
                 </div>
                 <div class="contact-detail-content">
-                  <h5>Dirección Oficial</h5>
+                  <h5>Dirección Oficial y Planta</h5>
                   <p>Mario Bravo 933 (C1175ABQ)<br>Ciudad Autónoma de Buenos Aires, Argentina</p>
                 </div>
               </div>
@@ -99,7 +99,7 @@
                   </svg>
                 </div>
                 <div class="contact-detail-content">
-                  <h5>Correo Electrónico</h5>
+                  <h5>Correo Institucional</h5>
                   <p><a href="mailto:sacerdoti@sacerdoti.com.ar">sacerdoti@sacerdoti.com.ar</a></p>
                 </div>
               </div>
@@ -112,8 +112,8 @@
         </div>
 
         <div class="contact-form-card">
-          <h3>Envíenos su mensaje</h3>
-          <p>Complete los datos a continuación y nos pondremos en contacto prontamente.</p>
+          <h3>Mensaje Institucional o Consulta General</h3>
+          <p>Para consultas administrativas o institucionales, complete los datos a continuación:</p>
 
           <div id="formSuccessMsg" class="form-success-message">
             ¡Muchas gracias por contactarnos! Su mensaje ha sido enviado correctamente. Le responderemos a la brevedad.
@@ -127,7 +127,7 @@
               </div>
               <div class="form-group">
                 <label class="form-label" for="empresa">Empresa / Institución</label>
-                <input type="text" id="empresa" name="empresa" class="form-control" placeholder="Ej. Laboratorio / Agencia">
+                <input type="text" id="empresa" name="empresa" class="form-control" placeholder="Ej. Empresa / Agencia">
               </div>
             </div>
 
@@ -143,23 +143,25 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="servicio">Línea o Servicio Requerido</label>
-              <select id="servicio" name="servicio" class="form-control">
-                <option value="estuches">Estuches Productivos (Cosmética, Medicina, Alimentos)</option>
-                <option value="estuchespromocionales">Estuches Promocionales y Packs de Lanzamiento</option>
-                <option value="materialpop">Material POP y Exhibidores para Punto de Venta</option>
-                <option value="promocion">Productos Promocionales (Raspaditas, Juegos, Almanaques)</option>
-                <option value="seguridad">Sistemas de Seguridad Antifalsificación</option>
-                <option value="consulta">Otras Consultas Generales</option>
+              <label class="form-label" for="motivo">Motivo de Contacto</label>
+              <select id="motivo" name="motivo" class="form-control">
+                <option value="consulta_general">Consulta General / Información</option>
+                <option value="proveedores">Proveedores e Insumos</option>
+                <option value="recursos_humanos">Recursos Humanos / Postulaciones</option>
+                <option value="administracion">Administración y Finanzas</option>
               </select>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="mensaje">Mensaje *</label>
-              <textarea id="mensaje" name="mensaje" class="form-control" placeholder="Escriba aquí su consulta o especificaciones de cotización..." required></textarea>
+              <textarea id="mensaje" name="mensaje" class="form-control" placeholder="Escriba aquí su consulta..." required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Enviar Mensaje de Contacto</button>
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Enviar Mensaje Institucional</button>
+
+            <div style="margin-top: 16px; text-align: center;">
+              <span style="font-size: 0.875rem; color: var(--color-text-muted);">¿Desea solicitar un presupuesto de producción? <a href="cotizar.html" style="color: var(--color-accent-600); font-weight: 600;">Ir al Cotizador Técnico &rarr;</a></span>
+            </div>
           </form>
         </div>
       </div>
@@ -205,7 +207,8 @@
             <a href="procesos.html">Procesos de Producción</a>
             <a href="productos.html">Catálogo de Productos</a>
             <a href="clientes.html">Nuestros Clientes</a>
-            <a href="contacto.html">Contacto y Cotizaciones</a>
+            <a href="contacto.html">Contacto Institucional</a>
+            <a href="cotizar.html" style="color: var(--color-accent-400); font-weight: 600;">Cotizador de Proyectos &rarr;</a>
           </div>
         </div>
 
