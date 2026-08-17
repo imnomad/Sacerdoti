@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sGradWhite1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0ea5e9" />
+    </linearGradient>
+    <linearGradient id="sGradWhite2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Modern Geometric 'S' Monogram (White/Cyan for Dark Backgrounds) -->
+  <g transform="translate(6, 6)">
+    <!-- Base Glow Plate -->
+    <path d="M 12 4 L 40 4 C 46.6 4 52 9.4 52 16 C 52 22.6 46.6 28 40 28 L 22 28 C 17.6 28 14 31.6 14 36 C 14 40.4 17.6 44 22 44 L 50 44" 
+          fill="none" stroke="#38bdf8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.2" />
+    
+    <!-- Top Geometric Curve (Light/Cyan) -->
+    <path d="M 46 8 L 18 8 C 11.4 8 6 13.4 6 20 C 6 26.6 11.4 32 18 32 L 34 32 C 40.6 32 46 37.4 46 44 C 46 50.6 40.6 56 34 56 L 6 56" 
+          fill="none" stroke="url(#sGradWhite1)" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" />
+          
+    <!-- Dynamic Accent Overlap -->
+    <path d="M 18 32 L 34 32 C 40.6 32 46 37.4 46 44 C 46 50.6 40.6 56 34 56 L 24 56" 
+          fill="none" stroke="url(#sGradWhite2)" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" />
+          
+    <!-- Diamond Accent -->
+    <polygon points="26,20 30,24 26,28 22,24" fill="#38bdf8" />
+  </g>
+
+  <!-- Typography: SACERDOTI (White) -->
+  <text x="74" y="36" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-size="25" font-weight="800" fill="#ffffff" letter-spacing="-0.5px">SACERDOTI</text>
+  
+  <!-- Subtitle: EMPRESA GRÁFICA • EST. 1941 -->
+  <text x="75" y="52" font-family="'Inter', -apple-system, sans-serif" font-size="9" font-weight="700" fill="#94a3b8" letter-spacing="1.8px">EMPRESA GRÁFICA • DESDE 1941</text>
+</svg>
