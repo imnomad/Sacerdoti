@@ -1124,20 +1124,74 @@ img, .gallery-card, .lightbox-img-wrapper, .hero-slider-img-wrap, .product-categ
 }
 
 .client-logo-card {
+  position: relative;
   background-color: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: 12px 8px;
-  height: 72px;
+  padding: 12px 10px;
+  height: 76px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.28s ease,
+              background-color 0.28s ease;
+  cursor: pointer;
+  overflow: hidden;
+  animation: clientLogoFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .client-logo-card img {
   max-width: 100%;
-  max-height: 42px;
+  max-height: 44px;
   object-fit: contain;
+  filter: grayscale(20%) contrast(95%);
+  opacity: 0.88;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.28s ease,
+              opacity 0.28s ease;
+}
+
+.client-logo-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent-400);
+  box-shadow: 0 10px 22px -4px rgba(10, 25, 47, 0.1), 0 4px 8px -2px rgba(10, 25, 47, 0.05);
+  background-color: #ffffff;
+}
+
+.client-logo-card:hover img {
+  transform: scale(1.07);
+  filter: grayscale(0%) contrast(100%);
+  opacity: 1;
+}
+
+.client-logo-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.client-logo-card:hover::after {
+  left: 150%;
+}
+
+@keyframes clientLogoFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* --------------------------------------------------------------------------

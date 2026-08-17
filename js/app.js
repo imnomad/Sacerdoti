@@ -41,8 +41,8 @@
     // VISTA: INICIO
     // -------------------------------------------------------------
     inicio: function () {
-      const topClients = (GALLERY.clientes || []).slice(0, 12).map(c => `
-        <div class="client-logo-card" title="${c.title}">
+      const topClients = (GALLERY.clientes || []).slice(0, 12).map((c, idx) => `
+        <div class="client-logo-card" title="${c.title}" style="animation-delay: ${idx * 0.03}s;">
           <img src="${c.rel_path}" alt="${c.title}" loading="lazy" oncontextmenu="return false;">
         </div>
       `).join('');
@@ -589,8 +589,8 @@
     // VISTA: CLIENTES
     // -------------------------------------------------------------
     clientes: function () {
-      const allClients = (GALLERY.clientes || []).map(c => `
-        <div class="client-logo-card" title="${c.title}">
+      const allClients = (GALLERY.clientes || []).map((c, idx) => `
+        <div class="client-logo-card" title="${c.title}" style="animation-delay: ${idx * 0.025}s;">
           <img src="${c.rel_path}" alt="${c.title}" loading="lazy" oncontextmenu="return false;">
         </div>
       `).join('');
