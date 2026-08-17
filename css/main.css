@@ -110,6 +110,26 @@ input, button, textarea, select {
   font-size: 1rem;
 }
 
+/* SPA Viewport & Dynamic Transitions */
+#app {
+  min-height: calc(100vh - var(--header-height) - 300px);
+}
+
+.spa-view {
+  animation: spaFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes spaFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;
