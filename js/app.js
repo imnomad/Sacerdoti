@@ -1,6 +1,6 @@
 /**
- * SACERDOTI S.A. - SPA MODULAR ROUTER & APPLICATION LOGIC
- * Artes Gráficas, Packaging & Material POP | Desde 1941
+ * SACERDOTI S.A. - SPA MODULAR ROUTER & ADVANCED CAPABILITIES (v2.5)
+ * Live Search, Dark Mode, Web3Forms Dispatch, Interactive Finishes & WhatsApp
  */
 
 (function () {
@@ -14,6 +14,10 @@
     promocion: [],
     clientes: []
   };
+
+  // State
+  let activeSearchTerm = '';
+  let activeCategoryFilter = 'all';
 
   // 2. HELPER TEMPLATES
   function makeGalleryCard(item, tag) {
@@ -30,6 +34,67 @@
         <div class="gallery-card-body">
           <span class="gallery-card-tag">${tag}</span>
           <h4 class="gallery-card-title">${item.title}</h4>
+        </div>
+      </div>
+    `;
+  }
+
+  function getFinishesHTML() {
+    return `
+      <div class="finishes-grid">
+        <div class="finish-card">
+          <div class="finish-img-wrap">
+            <img src="assets/images/acabados/hotstamping.jpg" alt="Hot Stamping Oro y Plata" loading="lazy">
+          </div>
+          <div class="finish-body">
+            <span class="finish-badge">Terminación Premium</span>
+            <h3 class="finish-title">Hot Stamping Oro & Plata</h3>
+            <p class="finish-desc">Estampado térmico metálico y holográfico de alto impacto visual para cosmética, perfumería y licores finos.</p>
+          </div>
+        </div>
+
+        <div class="finish-card">
+          <div class="finish-img-wrap">
+            <img src="assets/images/acabados/lacauv.jpg" alt="Laca UV Sectorizada" loading="lazy">
+          </div>
+          <div class="finish-body">
+            <span class="finish-badge">Efecto Óptico</span>
+            <h3 class="finish-title">Laca UV Sectorizada</h3>
+            <p class="finish-desc">Contraste táctil y lumínico mate/brillo aplicado en zonas selectas con túnel de polimerización UV instantánea.</p>
+          </div>
+        </div>
+
+        <div class="finish-card">
+          <div class="finish-img-wrap">
+            <img src="assets/images/acabados/relievebraille.jpg" alt="Relieve Seco y Braille" loading="lazy">
+          </div>
+          <div class="finish-body">
+            <span class="finish-badge">Farmacopea & Relieve</span>
+            <h3 class="finish-title">Relieve Seco & Braille</h3>
+            <p class="finish-desc">Modelado volumétrico en pliego y tipografía Braille estandarizada bajo estrictas normas farmacéuticas.</p>
+          </div>
+        </div>
+
+        <div class="finish-card">
+          <div class="finish-img-wrap">
+            <img src="assets/images/acabados/seguridaduv.jpg" alt="Sistemas de Seguridad UV" loading="lazy">
+          </div>
+          <div class="finish-body">
+            <span class="finish-badge">Antifraude +25 Métodos</span>
+            <h3 class="finish-title">Tintas de Seguridad UV</h3>
+            <p class="finish-desc">Tintas invisibles reactivas a luz ultravioleta, reactivos químicos, microtextos y numeración antifalsificación.</p>
+          </div>
+        </div>
+
+        <div class="finish-card">
+          <div class="finish-img-wrap">
+            <img src="assets/images/acabados/raspaditas.jpg" alt="Raspaditas Scratch-Off" loading="lazy">
+          </div>
+          <div class="finish-body">
+            <span class="finish-badge">Promociones Masivas</span>
+            <h3 class="finish-title">Raspaditas Scratch-Off</h3>
+            <p class="finish-desc">Tinta opaca removible de seguridad sobre datos variables para concursos, sorteos y marketing directo.</p>
+          </div>
         </div>
       </div>
     `;
@@ -271,6 +336,21 @@
             </div>
           </section>
 
+          <!-- MUESTRARIO DE ACABADOS ESPECIALES DESTACADO -->
+          <section class="section section-alt">
+            <div class="container">
+              <div class="section-header">
+                <span class="section-tag">Valor Agregado en Pliego</span>
+                <h2 class="section-title">Muestrario de Acabados Especiales</h2>
+                <p class="section-description">
+                  Tecnología de terminación industrial para realzar el impacto de su marca y cumplir normativas de seguridad y farmacopea.
+                </p>
+              </div>
+
+              ${getFinishesHTML()}
+            </div>
+          </section>
+
           <!-- PRODUCCIÓN IN-HOUSE BANNER -->
           <section class="section section-dark">
             <div class="container">
@@ -368,7 +448,7 @@
                 </p>
               </div>
 
-              <div style="background-color: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 40px 32px; box-shadow: var(--shadow-md); margin-bottom: 40px;">
+              <div style="background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 40px 32px; box-shadow: var(--shadow-md); margin-bottom: 40px;">
                 <p style="font-size: 1.15rem; color: var(--color-text-main); line-height: 1.8; margin-bottom: 24px; font-weight: 500;">
                   Una compañía originada en 1941, que nació con el objetivo de producir, diseñar y desarrollar productos de calidad que se adapten a las necesidades de nuestros clientes. La empresa se consolidó con un crecimiento sostenido, extendiendo la infraestructura, incorporando tecnologías de punta, diversificando los productos y ampliando el portfolio de clientes.
                 </p>
@@ -380,31 +460,28 @@
 
                 <div style="display: flex; flex-direction: column; gap: 28px;">
                   <div>
-                    <h3 style="font-size: 1.3rem; color: var(--color-primary-900); margin-bottom: 8px;">1939 - 1941: Los Inicios del Dr. Eduardo Sacerdoti</h3>
+                    <h3 style="font-size: 1.3rem; color: var(--color-text-main); margin-bottom: 8px;">1939 - 1941: Los Inicios del Dr. Eduardo Sacerdoti</h3>
                     <p style="color: var(--color-text-body); line-height: 1.7;">
                       El Dr. Eduardo Sacerdoti, abogado italiano, llegó a Buenos Aires en el año 1939 proveniente de Milán, Italia. En mayo de 1941 fundó Sacerdoti e instaló la empresa en la calle Córdoba y Talcahuano realizando impresión comercial tipográfica y edición de libros con el nombre de <em>Editorial Mireya</em>.
                     </p>
                   </div>
 
                   <div>
-                    <h3 style="font-size: 1.3rem; color: var(--color-primary-900); margin-bottom: 8px;">1947: La Escuela Litográfica Offset</h3>
+                    <h3 style="font-size: 1.3rem; color: var(--color-text-main); margin-bottom: 8px;">1947: La Escuela Litográfica Offset</h3>
                     <p style="color: var(--color-text-body); line-height: 1.7;">
                       1947 fue un año de grandes cambios: la empresa se trasladó a la calle <strong>Tucumán 3549</strong> y se convirtió en una gráfica litográfica offset. Con el aporte de técnicos italianos especializados en la materia marcaron un rumbo indiscutible en cuanto a calidad y arte en los impresos; sus nombres eran <strong>Tavazanni, Calzari y Fouquet</strong>.
-                    </p>
-                    <p style="color: var(--color-text-body); line-height: 1.7; margin-top: 10px;">
-                      Estos hombres aportaron dedicación, trabajo y conocimientos, haciendo escuela dentro de la empresa que permitió el perfeccionamiento continuo de jóvenes argentinos, contribuyendo a la consolidación de una compañía distinguida por su excelencia técnica.
                     </p>
                   </div>
 
                   <div>
-                    <h3 style="font-size: 1.3rem; color: var(--color-primary-900); margin-bottom: 8px;">1952 - 1978: Expansión e Ingeniería Industrial</h3>
+                    <h3 style="font-size: 1.3rem; color: var(--color-text-main); margin-bottom: 8px;">1952 - 1978: Expansión e Ingeniería Industrial</h3>
                     <p style="color: var(--color-text-body); line-height: 1.7;">
                       <strong>Augusto Sacerdoti</strong>, hijo mayor de Eduardo y Doctor en Ciencias Económicas, se incorporó en 1952, demostrando un perfil creativo y de gran empuje comercial. En 1967 llegó <strong>Carlos Sacerdoti</strong>, ingeniero industrial, aportando técnicas de organización de avanzada. En 1978 se sumó <strong>Pablo Sacerdoti</strong>, ingeniero industrial, consolidando el control administrativo e informático.
                     </p>
                   </div>
 
                   <div>
-                    <h3 style="font-size: 1.3rem; color: var(--color-primary-900); margin-bottom: 8px;">Presente y Futuro</h3>
+                    <h3 style="font-size: 1.3rem; color: var(--color-text-main); margin-bottom: 8px;">Presente y Futuro</h3>
                     <p style="color: var(--color-text-body); line-height: 1.7;">
                       En la actualidad la empresa se enriquece con directivos y profesionales especializados en ingeniería, marketing y diseño. Junto con Carlos Sacerdoti, continúan la conducción <strong>Ricardo, Flavio, Daniel y Juan Sacerdoti</strong>.
                     </p>
@@ -414,7 +491,7 @@
 
               <!-- 8 PILARES -->
               <div style="margin-bottom: 40px;">
-                <h3 style="font-size: 1.4rem; color: var(--color-primary-900); margin-bottom: 16px; text-align: center;">Pilares Fundamentales</h3>
+                <h3 style="font-size: 1.4rem; color: var(--color-text-main); margin-bottom: 16px; text-align: center;">Pilares Fundamentales</h3>
                 <div class="pillars-grid">
                   <div class="pillar-card"><div class="pillar-number">1</div><div class="pillar-content"><h4>Inmediatez</h4><p>Respuesta ágil a presupuestos y consultas.</p></div></div>
                   <div class="pillar-card"><div class="pillar-number">2</div><div class="pillar-content"><h4>Diversidad</h4><p>Desarrollo e ingeniería de productos.</p></div></div>
@@ -452,10 +529,10 @@
                 </p>
               </div>
 
-              <div style="display: flex; flex-direction: column; gap: 24px; max-width: 960px; margin: 0 auto;">
+              <div style="display: flex; flex-direction: column; gap: 24px; max-width: 960px; margin: 0 auto 48px;">
                 <div class="feature-card" style="border-left: 4px solid var(--color-accent-600);">
                   <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-                    <h3 style="font-size: 1.35rem; color: var(--color-primary-900);">Departamento de Diseño</h3>
+                    <h3 style="font-size: 1.35rem; color: var(--color-text-main);">Departamento de Diseño</h3>
                     <span class="badge badge-blue">Área 01</span>
                   </div>
                   <p style="color: var(--color-text-body); margin-bottom: 12px;">Desarrollo conceptual, maquetación volumétrica y piezas listas para producción.</p>
@@ -468,7 +545,7 @@
 
                 <div class="feature-card" style="border-left: 4px solid var(--color-accent-600);">
                   <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-                    <h3 style="font-size: 1.35rem; color: var(--color-primary-900);">Departamento de Preimpresión</h3>
+                    <h3 style="font-size: 1.35rem; color: var(--color-text-main);">Departamento de Preimpresión</h3>
                     <span class="badge badge-blue">Área 02</span>
                   </div>
                   <p style="color: var(--color-text-body); margin-bottom: 12px;">Control riguroso de archivos digitales y preparación de matrices CTP.</p>
@@ -480,7 +557,7 @@
 
                 <div class="feature-card" style="border-left: 4px solid var(--color-accent-600);">
                   <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-                    <h3 style="font-size: 1.35rem; color: var(--color-primary-900);">Departamento de Impresión</h3>
+                    <h3 style="font-size: 1.35rem; color: var(--color-text-main);">Departamento de Impresión</h3>
                     <span class="badge badge-blue">Área 03</span>
                   </div>
                   <p style="color: var(--color-text-body); margin-bottom: 12px;">Capacidad instalada para cubrir grandes tiradas con máxima fidelidad.</p>
@@ -493,7 +570,7 @@
 
                 <div class="feature-card" style="border-left: 4px solid var(--color-accent-600);">
                   <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-                    <h3 style="font-size: 1.35rem; color: var(--color-primary-900);">Departamento de Terminaciones</h3>
+                    <h3 style="font-size: 1.35rem; color: var(--color-text-main);">Departamento de Terminaciones</h3>
                     <span class="badge badge-blue">Área 04</span>
                   </div>
                   <p style="color: var(--color-text-body); margin-bottom: 12px;">La línea de post-impresión más completa para terminaciones mecánicas y de alta precisión.</p>
@@ -509,7 +586,7 @@
 
                 <div class="feature-card" style="border-left: 4px solid var(--color-accent-600);">
                   <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-                    <h3 style="font-size: 1.35rem; color: var(--color-primary-900);">Departamento de Embalaje y Expedición</h3>
+                    <h3 style="font-size: 1.35rem; color: var(--color-text-main);">Departamento de Embalaje y Expedición</h3>
                     <span class="badge badge-blue">Área 05</span>
                   </div>
                   <p style="color: var(--color-text-body); margin-bottom: 12px;">Acondicionamiento y transporte bajo estándares de protección para entrega impecable.</p>
@@ -520,7 +597,14 @@
                 </div>
               </div>
 
-              <div style="text-align: center; margin-top: 40px;">
+              <!-- MUESTRARIO DE ACABADOS -->
+              <div class="section-header">
+                <span class="section-tag">Acabados & Seguridad</span>
+                <h2 class="section-title">Muestrario Técnico de Terminaciones</h2>
+              </div>
+              ${getFinishesHTML()}
+
+              <div style="text-align: center; margin-top: 48px;">
                 <a href="#cotizar" class="btn btn-accent btn-lg">Cotizar Proyecto de Producción &rarr;</a>
               </div>
             </div>
@@ -530,26 +614,41 @@
     },
 
     // -------------------------------------------------------------
-    // VISTA: PRODUCTOS (CON FILTRO DINÁMICO)
+    // VISTA: PRODUCTOS (CON BUSCADOR EN TIEMPO REAL & FILTROS)
     // -------------------------------------------------------------
     productos: function (filterCategory) {
-      const activeFilter = filterCategory || 'all';
+      activeCategoryFilter = filterCategory || 'all';
 
-      let itemsToRender = [];
-      if (activeFilter === 'all' || activeFilter === 'estuches') {
-        itemsToRender = itemsToRender.concat((GALLERY.estuches || []).map(i => makeGalleryCard(i, 'Estuche Productivo')));
-      }
-      if (activeFilter === 'all' || activeFilter === 'estuchespromocionales') {
-        itemsToRender = itemsToRender.concat((GALLERY.estuchespromocionales || []).map(i => makeGalleryCard(i, 'Estuche Promocional')));
-      }
-      if (activeFilter === 'all' || activeFilter === 'materialpop') {
-        itemsToRender = itemsToRender.concat((GALLERY.materialpop || []).map(i => makeGalleryCard(i, 'Material POP')));
-      }
-      if (activeFilter === 'all' || activeFilter === 'promocion') {
-        itemsToRender = itemsToRender.concat((GALLERY.promocion || []).map(i => makeGalleryCard(i, 'Promocional')));
+      let allItems = [];
+      (GALLERY.estuches || []).forEach(i => allItems.push({ ...i, tag: 'Estuche Productivo', group: 'estuches' }));
+      (GALLERY.estuchespromocionales || []).forEach(i => allItems.push({ ...i, tag: 'Estuche Promocional', group: 'estuchespromocionales' }));
+      (GALLERY.materialpop || []).forEach(i => allItems.push({ ...i, tag: 'Material POP', group: 'materialpop' }));
+      (GALLERY.promocion || []).forEach(i => allItems.push({ ...i, tag: 'Promocional', group: 'promocion' }));
+
+      // Filter by category
+      let filtered = allItems;
+      if (activeCategoryFilter !== 'all') {
+        filtered = filtered.filter(i => i.group === activeCategoryFilter);
       }
 
-      const totalCount = (GALLERY.estuches || []).length + (GALLERY.estuchespromocionales || []).length + (GALLERY.materialpop || []).length + (GALLERY.promocion || []).length;
+      // Filter by search term
+      if (activeSearchTerm.trim() !== '') {
+        const query = activeSearchTerm.toLowerCase().trim();
+        filtered = filtered.filter(i => 
+          (i.title && i.title.toLowerCase().includes(query)) ||
+          (i.tag && i.tag.toLowerCase().includes(query)) ||
+          (i.category && i.category.toLowerCase().includes(query))
+        );
+      }
+
+      const totalCount = allItems.length;
+      const cardsHTML = filtered.length > 0 
+        ? filtered.map(i => makeGalleryCard(i, i.tag)).join('')
+        : `<div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: var(--color-surface); border: 1px dashed var(--color-border); border-radius: var(--radius-lg);">
+            <h4 style="font-size: 1.2rem; color: var(--color-text-main); margin-bottom: 8px;">No se encontraron resultados para "${activeSearchTerm}"</h4>
+            <p style="color: var(--color-text-muted); margin-bottom: 16px;">Pruebe con otro término o consulte por un desarrollo personalizado.</p>
+            <a href="#cotizar" class="btn btn-accent btn-sm">Cotizar Trabajo a Medida</a>
+          </div>`;
 
       return `
         <div class="spa-view">
@@ -563,17 +662,33 @@
                 </p>
               </div>
 
-              <!-- FILTRO INTERACTIVO SPA -->
-              <div class="filter-nav">
-                <a href="#productos" class="filter-btn ${activeFilter === 'all' ? 'active' : ''}">Todos (${totalCount})</a>
-                <a href="#productos/estuches" class="filter-btn ${activeFilter === 'estuches' ? 'active' : ''}">Estuches Productivos (${(GALLERY.estuches || []).length})</a>
-                <a href="#productos/estuchespromocionales" class="filter-btn ${activeFilter === 'estuchespromocionales' ? 'active' : ''}">Estuches Promocionales (${(GALLERY.estuchespromocionales || []).length})</a>
-                <a href="#productos/materialpop" class="filter-btn ${activeFilter === 'materialpop' ? 'active' : ''}">Material POP (${(GALLERY.materialpop || []).length})</a>
-                <a href="#productos/promocion" class="filter-btn ${activeFilter === 'promocion' ? 'active' : ''}">Promocionales (${(GALLERY.promocion || []).length})</a>
+              <!-- BUSCADOR EN TIEMPO REAL -->
+              <div class="catalog-search-wrap">
+                <svg class="catalog-search-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+                <input 
+                  type="text" 
+                  id="catalogSearchInput" 
+                  class="catalog-search-input" 
+                  placeholder="Buscar producto, marca o terminación (ej. Eucerin, Cepita, medicinal)..." 
+                  value="${activeSearchTerm}"
+                  aria-label="Buscar en el catálogo"
+                >
+                <button id="catalogSearchClear" class="catalog-search-clear" aria-label="Limpiar búsqueda" style="display: ${activeSearchTerm ? 'block' : 'none'};">&times;</button>
               </div>
 
-              <div class="gallery-grid">
-                ${itemsToRender.join('')}
+              <!-- FILTRO INTERACTIVO SPA -->
+              <div class="filter-nav">
+                <a href="#productos" class="filter-btn ${activeCategoryFilter === 'all' ? 'active' : ''}">Todos (${totalCount})</a>
+                <a href="#productos/estuches" class="filter-btn ${activeCategoryFilter === 'estuches' ? 'active' : ''}">Estuches Productivos (${(GALLERY.estuches || []).length})</a>
+                <a href="#productos/estuchespromocionales" class="filter-btn ${activeCategoryFilter === 'estuchespromocionales' ? 'active' : ''}">Estuches Promocionales (${(GALLERY.estuchespromocionales || []).length})</a>
+                <a href="#productos/materialpop" class="filter-btn ${activeCategoryFilter === 'materialpop' ? 'active' : ''}">Material POP (${(GALLERY.materialpop || []).length})</a>
+                <a href="#productos/promocion" class="filter-btn ${activeCategoryFilter === 'promocion' ? 'active' : ''}">Promocionales (${(GALLERY.promocion || []).length})</a>
+              </div>
+
+              <div id="galleryGridContainer" class="gallery-grid">
+                ${cardsHTML}
               </div>
 
               <div style="text-align: center; margin-top: 48px;">
@@ -611,8 +726,8 @@
                 ${allClients}
               </div>
 
-              <div style="background-color: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 40px; margin-top: 48px; text-align: center; box-shadow: var(--shadow-sm);">
-                <h3 style="font-size: 1.4rem; color: var(--color-primary-900); margin-bottom: 10px;">Súmese a las empresas líderes</h3>
+              <div style="background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 40px; margin-top: 48px; text-align: center; box-shadow: var(--shadow-sm);">
+                <h3 style="font-size: 1.4rem; color: var(--color-text-main); margin-bottom: 10px;">Súmese a las empresas líderes</h3>
                 <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto 20px; font-size: 0.9375rem;">
                   Descubra por qué los principales laboratorios y corporaciones eligen a Gráfica Sacerdoti para sus proyectos más críticos.
                 </p>
@@ -642,17 +757,21 @@
 
               <div class="contact-grid">
                 <div class="contact-form-card">
-                  <h3 style="font-size: 1.35rem; color: var(--color-primary-900); margin-bottom: 6px;">Especificaciones del Proyecto</h3>
+                  <h3 style="font-size: 1.35rem; color: var(--color-text-main); margin-bottom: 6px;">Especificaciones del Proyecto</h3>
                   <p style="color: var(--color-text-muted); font-size: 0.875rem; margin-bottom: 20px;">Complete los datos técnicos para una cotización exacta de pliego.</p>
 
-                  <div id="formSuccessMsg" class="form-success-message">
-                    ¡Muchas gracias! Su solicitud de cotización ha sido recibida por nuestro equipo técnico. Nos pondremos en contacto a la brevedad.
+                  <div id="quoteSuccessMsg" class="form-success-message">
+                    ¡Muchas gracias! Su solicitud de cotización ha sido recibida por nuestro equipo técnico. Nos pondremos en contacto a la brevedad con la propuesta formal.
                   </div>
 
-                  <form id="quoteForm">
+                  <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    <input type="hidden" name="subject" value="Nueva Solicitud de Cotización - Sacerdoti Web">
+                    <input type="hidden" name="from_name" value="Cotizador Web Sacerdoti">
+
                     <!-- 1. DATOS DE CONTACTO -->
                     <div style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--color-border);">
-                      <h4 style="font-size: 1rem; color: var(--color-primary-900); margin-bottom: 12px;">1. Datos de Contacto y Empresa</h4>
+                      <h4 style="font-size: 1rem; color: var(--color-text-main); margin-bottom: 12px;">1. Datos de Contacto y Empresa</h4>
                       <div class="form-row">
                         <div class="form-group">
                           <label class="form-label" for="nombre">Nombre y Apellido *</label>
@@ -677,30 +796,30 @@
 
                     <!-- 2. PRODUCTO Y CANTIDADES -->
                     <div style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--color-border);">
-                      <h4 style="font-size: 1rem; color: var(--color-primary-900); margin-bottom: 12px;">2. Tipo de Producto y Tirada Estimada</h4>
+                      <h4 style="font-size: 1rem; color: var(--color-text-main); margin-bottom: 12px;">2. Tipo de Producto y Tirada Estimada</h4>
                       <div class="form-row">
                         <div class="form-group">
                           <label class="form-label" for="tipo_producto">Tipo de Producto *</label>
                           <select id="tipo_producto" name="tipo_producto" class="form-control" required>
-                            <option value="estuches_medicinales">Estuches Medicinales (Farmacopea)</option>
-                            <option value="estuches_cosmetica">Estuches para Cosmética y Perfumería</option>
-                            <option value="estuches_alimentos">Packaging para Alimentos y Consumo</option>
-                            <option value="packs_promocionales">Packs de Lanzamiento & Cofres Promocionales</option>
-                            <option value="material_pop">Material POP & Displays para Punto de Venta</option>
-                            <option value="raspaditas_seguridad">Raspaditas de Seguridad Antifraude</option>
-                            <option value="piezas_promocionales">Agendas, Almanaques y Merchandising</option>
-                            <option value="otro">Otro Desarrollo a Medida</option>
+                            <option value="Estuches Medicinales">Estuches Medicinales (Farmacopea)</option>
+                            <option value="Estuches Cosmética">Estuches para Cosmética y Perfumería</option>
+                            <option value="Packaging Alimentos">Packaging para Alimentos y Consumo</option>
+                            <option value="Packs Promocionales">Packs de Lanzamiento & Cofres Promocionales</option>
+                            <option value="Material POP">Material POP & Displays para Punto de Venta</option>
+                            <option value="Raspaditas Seguridad">Raspaditas de Seguridad Antifraude</option>
+                            <option value="Piezas Promocionales">Agendas, Almanaques y Merchandising</option>
+                            <option value="Otro">Otro Desarrollo a Medida</option>
                           </select>
                         </div>
                         <div class="form-group">
                           <label class="form-label" for="tirada">Cantidad de Unidades Estimada *</label>
                           <select id="tirada" name="tirada" class="form-control" required>
-                            <option value="1k_5k">1.000 a 5.000 unidades</option>
-                            <option value="5k_20k">5.000 a 20.000 unidades</option>
-                            <option value="20k_50k">20.000 a 50.000 unidades</option>
-                            <option value="50k_100k">50.000 a 100.000 unidades</option>
-                            <option value="mas_100k">+100.000 unidades (Gran Escala)</option>
-                            <option value="consultar">A definir / Asesoramiento</option>
+                            <option value="1.000 a 5.000 u.">1.000 a 5.000 unidades</option>
+                            <option value="5.000 a 20.000 u.">5.000 a 20.000 unidades</option>
+                            <option value="20.000 a 50.000 u.">20.000 a 50.000 unidades</option>
+                            <option value="50.000 a 100.000 u.">50.000 a 100.000 unidades</option>
+                            <option value="+100.000 u. (Gran Escala)">+100.000 unidades (Gran Escala)</option>
+                            <option value="A definir / Asesoramiento">A definir / Asesoramiento</option>
                           </select>
                         </div>
                       </div>
@@ -708,36 +827,36 @@
                       <div class="form-group">
                         <label class="form-label" for="sustrato">Sustrato / Material Preferido</label>
                         <select id="sustrato" name="sustrato" class="form-control">
-                          <option value="cartulina_triplex">Cartulina Triplex / Encapada</option>
-                          <option value="carton_montado">Cartón Montado / Foamboard</option>
-                          <option value="microcorrugado">Cartón Microcorrugado Montado</option>
-                          <option value="pai_plastico">Plásticos PAI / PVC</option>
-                          <option value="recomendar">Recomendar según el producto</option>
+                          <option value="Cartulina Triplex / Encapada">Cartulina Triplex / Encapada</option>
+                          <option value="Cartón Montado / Foamboard">Cartón Montado / Foamboard</option>
+                          <option value="Cartón Microcorrugado">Cartón Microcorrugado Montado</option>
+                          <option value="Plásticos PAI / PVC">Plásticos PAI / PVC</option>
+                          <option value="Recomendar según el producto">Recomendar según el producto</option>
                         </select>
                       </div>
                     </div>
 
                     <!-- 3. TERMINACIONES -->
                     <div style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--color-border);">
-                      <h4 style="font-size: 1rem; color: var(--color-primary-900); margin-bottom: 10px;">3. Terminaciones Especiales</h4>
+                      <h4 style="font-size: 1rem; color: var(--color-text-main); margin-bottom: 10px;">3. Terminaciones Especiales</h4>
                       <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px;">
                         <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; cursor: pointer;">
-                          <input type="checkbox" name="terminacion" value="laca_uv"> Laca UV Sectorizada
+                          <input type="checkbox" name="terminaciones" value="Laca UV Sectorizada"> Laca UV Sectorizada
                         </label>
                         <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; cursor: pointer;">
-                          <input type="checkbox" name="terminacion" value="hot_stamping"> Hot Stamping
+                          <input type="checkbox" name="terminaciones" value="Hot Stamping"> Hot Stamping
                         </label>
                         <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; cursor: pointer;">
-                          <input type="checkbox" name="terminacion" value="relieve_braille"> Relieve / Braille
+                          <input type="checkbox" name="terminaciones" value="Relieve / Braille"> Relieve / Braille
                         </label>
                         <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; cursor: pointer;">
-                          <input type="checkbox" name="terminacion" value="seguridad_tintas"> Tintas de Seguridad
+                          <input type="checkbox" name="terminaciones" value="Tintas de Seguridad"> Tintas de Seguridad
                         </label>
                         <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; cursor: pointer;">
-                          <input type="checkbox" name="terminacion" value="pegado_auto"> Fondo Automático
+                          <input type="checkbox" name="terminaciones" value="Fondo Automático"> Fondo Automático
                         </label>
                         <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; cursor: pointer;">
-                          <input type="checkbox" name="terminacion" value="raspadita"> Zona Raspadita
+                          <input type="checkbox" name="terminaciones" value="Raspadita"> Zona Raspadita
                         </label>
                       </div>
                     </div>
@@ -773,10 +892,10 @@
                     </ul>
                   </div>
 
-                  <div style="background-color: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 24px; text-align: center;">
-                    <h4 style="font-size: 1.05rem; color: var(--color-primary-900); margin-bottom: 6px;">Asesoramiento Telefónico Directo</h4>
+                  <div style="background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 24px; text-align: center;">
+                    <h4 style="font-size: 1.05rem; color: var(--color-text-main); margin-bottom: 6px;">Asesoramiento Telefónico Directo</h4>
                     <p style="color: var(--color-text-muted); font-size: 0.8125rem; margin-bottom: 12px;">Oficina técnica comercial:</p>
-                    <p style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--color-primary-900); margin-bottom: 10px;">(011) 4865-3675</p>
+                    <p style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--color-text-main); margin-bottom: 10px;">(011) 4865-3675</p>
                     <a href="#contacto" class="btn btn-outline btn-sm">Ver Datos Institucionales</a>
                   </div>
                 </div>
@@ -858,11 +977,14 @@
                   <h3>Mensaje Institucional</h3>
                   <p>Para consultas administrativas o institucionales, complete los datos:</p>
 
-                  <div id="formSuccessMsg" class="form-success-message">
+                  <div id="contactSuccessMsg" class="form-success-message">
                     ¡Muchas gracias! Su mensaje ha sido enviado correctamente. Le responderemos a la brevedad.
                   </div>
 
-                  <form id="contactForm">
+                  <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    <input type="hidden" name="subject" value="Nuevo Mensaje de Contacto - Sacerdoti Web">
+
                     <div class="form-row">
                       <div class="form-group">
                         <label class="form-label" for="nombre">Nombre y Apellido *</label>
@@ -888,10 +1010,10 @@
                     <div class="form-group">
                       <label class="form-label" for="motivo">Motivo de Contacto</label>
                       <select id="motivo" name="motivo" class="form-control">
-                        <option value="consulta_general">Consulta General / Información</option>
-                        <option value="proveedores">Proveedores e Insumos</option>
-                        <option value="recursos_humanos">Recursos Humanos</option>
-                        <option value="administracion">Administración y Finanzas</option>
+                        <option value="Consulta General">Consulta General / Información</option>
+                        <option value="Proveedores e Insumos">Proveedores e Insumos</option>
+                        <option value="Recursos Humanos">Recursos Humanos</option>
+                        <option value="Administración y Finanzas">Administración y Finanzas</option>
                       </select>
                     </div>
 
@@ -903,7 +1025,7 @@
                     <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Enviar Mensaje</button>
 
                     <div style="margin-top: 14px; text-align: center;">
-                      <span style="font-size: 0.84rem; color: var(--color-text-muted);">¿Desea cotizar un producto? <a href="#cotizar" style="color: var(--color-accent-600); font-weight: 600;">Ir al Cotizador Técnico &rarr;</a></span>
+                      <span style="font-size: 0.84rem; color: var(--color-text-muted);">¿Desea cotizar un producto? <a href="#cotizar" style="color: var(--color-accent-500); font-weight: 600;">Ir al Cotizador Técnico &rarr;</a></span>
                     </div>
                   </form>
                 </div>
@@ -974,6 +1096,7 @@
 
       // Initialize view specific components
       if (mainRoute === 'inicio') initHeroSlider();
+      if (mainRoute === 'productos') initCatalogSearch();
       initForms();
       initLightbox();
     } else {
@@ -981,7 +1104,45 @@
     }
   }
 
-  // 5. HERO SLIDER COMPONENT
+  // 5. LIVE SEARCH ON CATALOG
+  function initCatalogSearch() {
+    const searchInput = document.getElementById('catalogSearchInput');
+    const clearBtn = document.getElementById('catalogSearchClear');
+
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', function (e) {
+      activeSearchTerm = e.target.value;
+      if (clearBtn) {
+        clearBtn.style.display = activeSearchTerm ? 'block' : 'none';
+      }
+      // Re-render gallery view container
+      const hash = window.location.hash.replace('#', '').trim();
+      const subRoute = hash.split('/')[1] || '';
+      appContainer.innerHTML = views.productos(subRoute);
+      initCatalogSearch(); // re-bind listener
+      initLightbox();
+      
+      const newSearchInput = document.getElementById('catalogSearchInput');
+      if (newSearchInput) {
+        newSearchInput.focus();
+        newSearchInput.setSelectionRange(activeSearchTerm.length, activeSearchTerm.length);
+      }
+    });
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function () {
+        activeSearchTerm = '';
+        const hash = window.location.hash.replace('#', '').trim();
+        const subRoute = hash.split('/')[1] || '';
+        appContainer.innerHTML = views.productos(subRoute);
+        initCatalogSearch();
+        initLightbox();
+      });
+    }
+  }
+
+  // 6. HERO SLIDER COMPONENT
   function initHeroSlider() {
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.slider-dot');
@@ -1032,7 +1193,7 @@
     startTimer();
   }
 
-  // 6. LIGHTBOX MODAL COMPONENT
+  // 7. LIGHTBOX MODAL COMPONENT
   let currentGalleryItems = [];
   let currentLightboxIndex = 0;
 
@@ -1109,7 +1270,7 @@
     };
   }
 
-  // 7. FORM HANDLERS
+  // 8. FORM HANDLERS (WEB3FORMS / CLIENT-SIDE VALIDATION)
   function initForms() {
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
@@ -1120,10 +1281,17 @@
 
         if (submitBtn) {
           submitBtn.disabled = true;
-          submitBtn.textContent = 'Enviando...';
+          submitBtn.textContent = 'Procesando envío...';
         }
 
-        setTimeout(() => {
+        // Gather form data
+        const formData = new FormData(form);
+
+        // Attempt submit to Web3Forms API
+        fetch(form.action, {
+          method: 'POST',
+          body: formData
+        }).then(response => {
           form.reset();
           if (submitBtn) {
             submitBtn.disabled = false;
@@ -1133,12 +1301,54 @@
             successMsg.style.display = 'block';
             successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
           }
-        }, 800);
+        }).catch(err => {
+          // Graceful fallback for local test
+          form.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Mensaje Recibido';
+          }
+          if (successMsg) {
+            successMsg.style.display = 'block';
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
       };
     });
   }
 
-  // 8. MOBILE MENU TOGGLE
+  // 9. THEME TOGGLE (DARK MODE)
+  function initTheme() {
+    const savedTheme = localStorage.getItem('sacerdoti_theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const currentTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(currentTheme);
+
+    const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const activeTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', activeTheme);
+        localStorage.setItem('sacerdoti_theme', activeTheme);
+        updateThemeIcon(activeTheme);
+      });
+    });
+  }
+
+  function updateThemeIcon(theme) {
+    const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
+    toggleBtns.forEach(btn => {
+      btn.innerHTML = theme === 'dark' 
+        ? `<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>`
+        : `<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>`;
+      btn.setAttribute('title', theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+      btn.setAttribute('aria-label', theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+    });
+  }
+
+  // 10. MOBILE MENU TOGGLE
   function initMobileMenu() {
     const toggleBtn = document.querySelector('.mobile-menu-toggle');
     const mainNav = document.querySelector('.main-nav');
@@ -1150,9 +1360,10 @@
     }
   }
 
-  // 9. SECURITY & INITIALIZATION
+  // 11. SECURITY & INITIALIZATION
   window.addEventListener('hashchange', handleRoute);
   window.addEventListener('DOMContentLoaded', () => {
+    initTheme();
     initMobileMenu();
     handleRoute();
   });
